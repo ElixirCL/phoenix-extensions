@@ -7,7 +7,7 @@ defmodule PhoenixExtensionsWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_phoenix_extensions_key",
-    signing_salt: "BJ/HOV9T",
+    signing_salt: "9rxuTu8e",
     same_site: "Lax"
   ]
 

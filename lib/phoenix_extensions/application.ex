@@ -10,6 +10,9 @@ defmodule PhoenixExtensions.Application do
     children = [
       PhoenixExtensionsWeb.Telemetry,
       PhoenixExtensions.Repo,
+      {Ecto.Migrator,
+        repos: Application.fetch_env!(:phoenix_extensions, :ecto_repos),
+        skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:phoenix_extensions, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhoenixExtensions.PubSub},
       # Start the Finch HTTP client for sending emails
@@ -32,5 +35,10 @@ defmodule PhoenixExtensions.Application do
   def config_change(changed, _new, removed) do
     PhoenixExtensionsWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp skip_migrations?() do
+    # By default, sqlite migrations are run when using a release
+    System.get_env("RELEASE_NAME") != nil
   end
 end

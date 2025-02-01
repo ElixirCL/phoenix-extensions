@@ -6,18 +6,15 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :phoenix_extensions, PhoenixExtensions.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "phoenix_extensions_test#{System.get_env("MIX_TEST_PARTITION")}",
-  pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: System.schedulers_online() * 2
+  database: Path.expand("../phoenix_extensions_test.db", __DIR__),
+  pool_size: 5,
+  pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :phoenix_extensions, PhoenixExtensionsWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "SPBsOrK+/pzPNenVGsmEVvVOjc/obGuG4dMhQ6RbF3RNnjatTAm3lkK7WLnlzbVt",
+  secret_key_base: "3kzjoqIXzEZXv1h/yUxyRh1h6ZsEqkLs4zpWNg1wDtuJR+3YXeuxM8TtlCpDfshY",
   server: false
 
 # In test we don't send emails

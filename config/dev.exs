@@ -2,13 +2,10 @@ import Config
 
 # Configure your database
 config :phoenix_extensions, PhoenixExtensions.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "phoenix_extensions_dev",
+  database: Path.expand("../phoenix_extensions_dev.db", __DIR__),
+  pool_size: 5,
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  show_sensitive_data_on_connection_error: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -23,7 +20,7 @@ config :phoenix_extensions, PhoenixExtensionsWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "fJxrKOaLpOP6drsw7xbGD1aH7sxYGsmLO6q/sbq9gVYYiEP9/3D/HALcR3xQPKk9",
+  secret_key_base: "fy2f5vadBD5PejG0c051cYAmof4DjeElgU4SUsOhXVi8/ZK9KPvrRfnoX9z+xIb+",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:phoenix_extensions, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:phoenix_extensions, ~w(--watch)]}

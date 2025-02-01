@@ -20,7 +20,7 @@ config :phoenix_extensions, PhoenixExtensionsWeb.Endpoint,
     layout: false
   ],
   pubsub_server: PhoenixExtensions.PubSub,
-  live_view: [signing_salt: "KUQlhJqg"]
+  live_view: [signing_salt: "VQbhRlxk"]
 
 # Configures the mailer
 #
