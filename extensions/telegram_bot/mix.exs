@@ -1,4 +1,4 @@
-defmodule ExtensionTelegramBot.MixProject do
+defmodule Extensions.TelegramBot.MixProject do
   use Mix.Project
 
   def project do
