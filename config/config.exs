@@ -67,4 +67,6 @@ config :phoenix, :json_library, Jason
 import_config "#{config_env()}.exs"
 
 # Import Telegram Bot Extension Config
-import_config Path.join(["extensions", "telegram_bot", "config", "#{config_env()}.exs"])
+import_config ["extensions", "telegram_bot", "config", "#{config_env()}.exs"]
+              |> Path.join()
+              |> Path.expand()
