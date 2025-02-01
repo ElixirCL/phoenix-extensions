@@ -1,10 +1,10 @@
 defmodule Extensions.TelegramBot do
- @moduledoc false
+  @moduledoc false
 
- require Logger
+  require Logger
 
- def init() do
-  Logger.info("Telegram Bot Extension Initialized")
-  :ok
- end
+  def init() do
+    Logger.info("Telegram Bot Extension Initialized")
+    :ok
+  end
 end

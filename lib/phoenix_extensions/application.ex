@@ -11,9 +11,9 @@ defmodule PhoenixExtensions.Application do
       PhoenixExtensionsWeb.Telemetry,
       PhoenixExtensions.Repo,
       {Ecto.Migrator,
-        repos: Application.fetch_env!(:phoenix_extensions, :ecto_repos),
-        skip: skip_migrations?()},
-      {DNSCluster, query: Application.get_env(:phoenix_extensions, :dns_cluster_query) || :ignore},
+       repos: Application.fetch_env!(:phoenix_extensions, :ecto_repos), skip: skip_migrations?()},
+      {DNSCluster,
+       query: Application.get_env(:phoenix_extensions, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhoenixExtensions.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: PhoenixExtensions.Finch},
