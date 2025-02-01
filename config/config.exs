@@ -9,7 +9,8 @@ import Config
 
 config :phoenix_extensions,
   ecto_repos: [PhoenixExtensions.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  extensions: [Extensions.TelegramBot]
 
 # Configures the endpoint
 config :phoenix_extensions, PhoenixExtensionsWeb.Endpoint,
