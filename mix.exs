@@ -27,6 +27,13 @@ defmodule PhoenixExtensions.MixProject do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
+  # Specifies your project extensions.
+  defp extensions do
+    [
+      {:extension_telegram_bot, path: Path.join(["extensions", "telegram_bot"])}
+    ]
+  end
+
   # Specifies your project dependencies.
   #
   # Type `mix help deps` for examples and options.
@@ -58,7 +65,7 @@ defmodule PhoenixExtensions.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"}
-    ]
+    ] ++ extensions()
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

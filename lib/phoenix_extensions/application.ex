@@ -11,9 +11,9 @@ defmodule PhoenixExtensions.Application do
       PhoenixExtensionsWeb.Telemetry,
       PhoenixExtensions.Repo,
       {Ecto.Migrator,
-        repos: Application.fetch_env!(:phoenix_extensions, :ecto_repos),
-        skip: skip_migrations?()},
-      {DNSCluster, query: Application.get_env(:phoenix_extensions, :dns_cluster_query) || :ignore},
+       repos: Application.fetch_env!(:phoenix_extensions, :ecto_repos), skip: skip_migrations?()},
+      {DNSCluster,
+       query: Application.get_env(:phoenix_extensions, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhoenixExtensions.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: PhoenixExtensions.Finch},
@@ -22,6 +22,11 @@ defmodule PhoenixExtensions.Application do
       # Start to serve requests, typically the last entry
       PhoenixExtensionsWeb.Endpoint
     ]
+
+    # Initialize extensions
+    Enum.each(Application.get_env(:phoenix_extensions, :extensions, []), fn extension ->
+      extension.init()
+    end)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

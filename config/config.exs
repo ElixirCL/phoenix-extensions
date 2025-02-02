@@ -9,7 +9,8 @@ import Config
 
 config :phoenix_extensions,
   ecto_repos: [PhoenixExtensions.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  extensions: [PhoenixExtensions.Extensions.TelegramBot]
 
 # Configures the endpoint
 config :phoenix_extensions, PhoenixExtensionsWeb.Endpoint,
@@ -64,3 +65,8 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+# Import Telegram Bot Extension Config
+import_config ["extensions", "telegram_bot", "config", "#{config_env()}.exs"]
+              |> Path.join()
+              |> Path.expand()
