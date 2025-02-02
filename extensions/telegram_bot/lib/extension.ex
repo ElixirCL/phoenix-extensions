@@ -1,4 +1,4 @@
-defmodule Extensions.TelegramBot do
+defmodule PhoenixExtensions.Extensions.TelegramBot do
   @moduledoc false
 
   require Logger

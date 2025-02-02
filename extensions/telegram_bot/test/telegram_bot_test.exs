@@ -1,4 +1,4 @@
-defmodule ExtensionTelegramBotTest do
+defmodule PhoenixExtensions.Extensions.TelegramBotTest do
   use ExUnit.Case
   doctest ExtensionTelegramBot
 
