@@ -4,7 +4,7 @@
   plugins: [Phoenix.LiveView.HTMLFormatter],
   inputs: [
     "*.{heex,ex,exs}",
-    "{extensions,config,lib,test}/**/*.{heex,ex,exs}",
+    "{core,extensions,config,lib,test}/**/*.{heex,ex,exs}",
     "priv/*/seeds.exs"
   ]
 ]
